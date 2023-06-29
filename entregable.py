@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 import json
 
@@ -13,5 +14,11 @@ def obtener_datos(url):
 url_de_api = "https://infra.datos.gob.ar/catalog/modernizacion/dataset/7/distribution/7.27/download/localidades-censales.json"
 datos_api = obtener_datos(url_de_api)
 
-print(datos_api)
+
+loc_cen = datos_api["localidades-censales"]
+
+
+df = pd.DataFrame(loc_cen) 
+
+print(df)
 
